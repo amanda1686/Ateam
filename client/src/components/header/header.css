@@ -1,0 +1,34 @@
+/* Estilos para el formulario de búsqueda en pantallas de ordenador */
+.search {
+    display: none; /* Oculta el formulario en pantallas pequeñas */
+}
+
+/* Estilos para el botón de búsqueda en dispositivos móviles */
+.busquedad {
+    width: 3rem; /* Ancho del botón de búsqueda */
+    height: 2.5rem; /* Alto del botón de búsqueda */
+}
+
+@media (min-width: 1024px) {
+    /* Estilos para el formulario de búsqueda en pantallas de ordenador */
+    .search {
+        display: none; /* Muestra el formulario en pantallas grandes */
+    }
+
+    /* Estilos para el botón de búsqueda en pantallas de ordenador */
+    .busquedad {
+        display: none !important; /* Oculta el botón de búsqueda en pantallas grandes */
+    }
+}
+@media (max-width: 640px) {
+    .search {
+        display: none !important; /* Oculta el formulario en pantallas pequeñas */
+    }
+
+    .busquedad {
+        display: inline; /* Muestra el botón de búsqueda en pantallas pequeñas */
+    }
+}
+
+
+  

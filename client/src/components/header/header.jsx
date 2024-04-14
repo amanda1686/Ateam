@@ -3,6 +3,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Logo from '/img/Logo.png'
 import {AiOutlineSearch} from 'react-icons/ai'
+import { FaMoon } from "react-icons/fa";
+import './header.css'
 
 
 function Header() {
@@ -17,17 +19,34 @@ function Header() {
           width='15%'
           />
         </Link>
-        <form>
-          <TextInput
-          type='text'
-          placeholder='Search...'
-          rightIcon={AiOutlineSearch}
-          className='hidden lg:inline'
-          />
-        </form>
-        <Button className='w-12 h-10 lg:hidden' color='gray' pill>
-          <AiOutlineSearch/>
-        </Button>
+        <div className=" flex gap-2">
+          <Button className=' w-12 h-10 lg:hidden sm:inline' color='gray' pill>
+            <FaMoon/>
+          </Button>
+          <Link>
+            <Button outline gradientDuoTone="greenToBlue">
+              Login
+            </Button>
+          </Link>
+          <Navbar.Toggle/>
+        </div>
+          <Navbar.Collapse>
+            <Navbar.Link>
+              <Link to='/'>
+                Home
+              </Link>
+            </Navbar.Link>
+            <Navbar.Link>
+              <Link to='/vision'>
+                Our Vision
+              </Link>
+            </Navbar.Link>
+            <Navbar.Link>
+              <Link to='/products'>
+                Products
+              </Link>
+            </Navbar.Link>
+          </Navbar.Collapse>
       </Navbar>
     
   )
