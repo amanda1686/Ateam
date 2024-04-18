@@ -1,10 +1,44 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import Logo from '/img/Logo.png';
-import { Button, Label, TextInput } from 'flowbite-react';
+import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
 
 
 function Register() {
+  const [formData, setFormData] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, setLoadig] = useState (false);
+  const naviate = useNavigate();
+
+  const handleChange = (e) =>{
+    setFormData({...formData, [e.target.id]: e.target.value.trim() });
+  }
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
+    if (!formData.username || !formData.lastname || !formData.email || !formData.password) {
+      return setErrorMessage ('Please fill out all fields.')
+    }
+    try {
+      setLoadig(true);
+      setErrorMessage(null);
+      const res = await fetch ('/api/auth/register', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (data.sucess === false) {
+        return setErrorMessage(data.message);
+      }
+      setLoadig(false);
+      if (res.ok) {
+        naviate('/login');
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+      setLoadig(false);
+    }
+  }
   return (
     <div className=' min-h-screen mt-10'>
       <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
@@ -30,13 +64,14 @@ function Register() {
         </div>
         {/* right */}
         <div className=" mt-10 flex-1">
-          <form className='flex flex-col gap-4 w-[300px]'>
+          <form className='flex flex-col gap-4 w-[300px]' onSubmit={handleSubmit}>
             <div className=" md: ">
               <Label value='Your username'/>
               <TextInput
                 type='text'
                 placeholder='Username'
                 id='username'
+                onChange={handleChange}
               />
             </div>
             <div className=" md: ">
@@ -45,26 +80,36 @@ function Register() {
                 type='text'
                 placeholder='lastname'
                 id='lastname'
+                onChange={handleChange}
               />
             </div>
             <div className=" md: ">
               <Label value='Your email'/>
               <TextInput
-                type='text'
+                type='email'
                 placeholder='name@company'
                 id='email'
+                onChange={handleChange}
               />
             </div>
             <div className=" md: ">
               <Label value='Your password'/>
               <TextInput
-                type='text'
+                type='password'
                 placeholder='password'
                 id='password'
+                onChange={handleChange}
               />
             </div>
-            <Button className=''  gradientDuoTone="redToYellow" type='submit'>
-              Register
+            <Button className=''  gradientDuoTone="redToYellow" type='submit' disabled={loading}>
+              {
+                loading ? (
+                  <>
+                  <Spinner size='sm'/>
+                  <span className=' pl-3'>Loading</span>
+                  </>
+                ) : 'Register'
+              }
             </Button>
           </form>
           <div className=" flex gap-2 text-sm mt-5 md: ">
@@ -76,6 +121,13 @@ function Register() {
               Login
             </Link>
           </div>
+          {
+            errorMessage && (
+              <Alert className=' mt-5' color='failure'>
+                {errorMessage}
+              </Alert>
+            )
+          }
         </div>
       </div>
     </div>
