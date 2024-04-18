@@ -7,6 +7,8 @@ import Header from './components/header/header.jsx';
 import Dashboard from './components/dashboard/dashboard.jsx';
 import Vision from './pages/vision/vison.jsx';
 import Products from './pages/products/products.jsx';
+import Footer from "./components/footer/footer.jsx";
+import Contact from "./pages/contact/contact.jsx";
 
 
 export default function App() {
@@ -20,7 +22,9 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/vision" element={<Vision/>}/>
           <Route path="/products" element={<Products/>}/>
+          <Route path="/contact" element={<Contact/>}/>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 }
