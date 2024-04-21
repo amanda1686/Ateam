@@ -16,15 +16,15 @@ export default function DashSidebar() {
       }
     },[location.search]);
   return (
-    <Sidebar className='w-full md:w-56'>
+    <Sidebar className='w-full md:w-56 sidebar'>
         <Sidebar.Items>
             <Sidebar.ItemGroup>
                 <Link to='/dashboard?tab=profile'>                
-                <Sidebar.Item active={tab === 'profile'} icon={HiUser} label={'User'} labelColor='dark'>
+                <Sidebar.Item active={tab === 'profile'} icon={HiUser} label={'User'} labelColor='dark' className='hover:bg-yellow-300 dark:hover:bg-pink-300'>
                     Profile 
                 </Sidebar.Item>
                 </Link>
-                <Sidebar.Item  icon={IoMdLogOut}  labelColor='dark'>
+                <Sidebar.Item  icon={IoMdLogOut}  labelColor='dark' className='cursor-pointer hover:bg-yellow-300 dark:hover:bg-pink-300'>
                     Logout
                 </Sidebar.Item>
             </Sidebar.ItemGroup>
