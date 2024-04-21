@@ -1,6 +1,6 @@
 import { Sidebar } from 'flowbite-react'
 import { useEffect, useState } from 'react';
-import { HiUser } from "react-icons/hi2";
+import { GiCoffeeCup } from "react-icons/gi";
 import { IoMdLogOut } from "react-icons/io";
 import { Link, useLocation } from 'react-router-dom';
 
@@ -20,11 +20,21 @@ export default function DashSidebar() {
         <Sidebar.Items>
             <Sidebar.ItemGroup>
                 <Link to='/dashboard?tab=profile'>                
-                <Sidebar.Item active={tab === 'profile'} icon={HiUser} label={'User'} labelColor='dark' className='hover:bg-yellow-300 dark:hover:bg-pink-300'>
+                <Sidebar.Item 
+                  icon={GiCoffeeCup }
+                  active={tab === 'profile'} 
+                  label={'User'} 
+                  labelColor='dark'
+                  as='div' 
+                  className='hover:bg-yellow-300 dark:hover:bg-pink-300'>
                     Profile 
                 </Sidebar.Item>
                 </Link>
-                <Sidebar.Item  icon={IoMdLogOut}  labelColor='dark' className='cursor-pointer hover:bg-yellow-300 dark:hover:bg-pink-300'>
+                <Sidebar.Item 
+                  icon={IoMdLogOut}  
+                  labelColor='dark' 
+                  as='div'
+                  className='cursor-pointer hover:bg-yellow-300 dark:hover:bg-pink-300'>
                     Logout
                 </Sidebar.Item>
             </Sidebar.ItemGroup>
