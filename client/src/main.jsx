@@ -14,6 +14,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <ThemeProvide>
       <App />
       </ThemeProvide>
-    </Provider>,
+    </Provider>
   </PersistGate>
 );
