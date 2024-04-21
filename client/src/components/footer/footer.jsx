@@ -19,7 +19,7 @@ export default function FooterCom() {
                 src={Logo}
                 alt="logo"
                 width="20%"
-                className="logo"
+                className="logo rounded"
               />
             </span>
           </Link>

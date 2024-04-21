@@ -1,11 +1,17 @@
-import { Button, Navbar, TextInput } from "flowbite-react";
+import { Avatar, Button, Dropdown, Navbar, TextInput } from "flowbite-react";
 import { Link, useLocation } from "react-router-dom";
 import {AiOutlineSearch} from 'react-icons/ai'
-import { RiMoonClearFill } from "react-icons/ri";
+import { BsFillMoonStarsFill } from "react-icons/bs";
+import { FaSun } from "react-icons/fa";
 import  './header.css'
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../../redux/theme/themeSlice";
 
 export default function Header() {
+  const {theme} = useSelector ((state) => state.theme);
+  const dispatch = useDispatch();
   const path = useLocation().pathname;
+  const {currentUser} = useSelector(state => state.user);
   return (
     <Navbar className=" border-b-2">
       <Link to="/" className=" self-center whitespace-nowrap">
@@ -40,14 +46,47 @@ export default function Header() {
         <AiOutlineSearch/>
       </Button>
       <div className=" flex gap-2 md:order-2">
-        <Button className=" w-12 h-10 hidden sm:inline" color="black" pill>
-        <RiMoonClearFill />
+        <Button className=" w-12 h-10 hidden sm:inline" 
+        color="gray" 
+        pill
+        onClick={() => dispatch(toggleTheme())}
+        >
+          {theme === 'light' ? <FaSun /> :  <BsFillMoonStarsFill /> }
         </Button>
-        <Link to="/login">
-          <Button className="" outline gradientDuoTone="redToYellow" >
-            Login
-          </Button>
-        </Link>
+        {currentUser ? (
+          <Dropdown
+          arrowIcon={false}
+          inline
+          label={
+            <Avatar
+            alt="user"
+            img={currentUser.profilePicture}
+            rounded
+            />
+          }
+          >
+            <Dropdown.Header>
+              <span className="block text-sm">@{currentUser.username}</span>
+              <span className="block text-sm font-medium truncate">@{currentUser.email}</span>
+            </Dropdown.Header>
+            <Link to={'/dashboard?tab=profile'}>
+              <Dropdown.Item>Profile</Dropdown.Item>
+            </Link>
+            <Dropdown.Divider/>
+            <Dropdown.Item>Logout</Dropdown.Item>
+            
+          </Dropdown>
+        ):
+          (
+            <Link to="/login">
+              <Button className="" outline gradientDuoTone="redToYellow" >
+                Login
+              </Button>
+            </Link>
+            
+          )
+      
+        }
         <Navbar.Toggle/>
       </div>
       

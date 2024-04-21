@@ -3,7 +3,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import Logo from '/img/Logo.png';
 import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginFailure, loginStart, loginSuccess } from '../../redux/user/userSlice';
+import { loginFailure, loginStart, loginSuccess } from '../../redux/user/userSlice.js';
+import Oauth from '../../components/oauth/oauth.jsx';
+
 
 
 function Login() {
@@ -83,7 +85,7 @@ function Login() {
                 onChange={handleChange}
               />
             </div>
-            <Button className=''  gradientDuoTone="redToYellow" type='submit' disabled={loading}>
+            <Button className='hover:text-white'  gradientDuoTone="redToYellow" type='submit' disabled={loading}>
               {
                 loading ? (
                   <>
@@ -93,6 +95,7 @@ function Login() {
                 ) : 'Login'
               }
             </Button>
+            <Oauth/>
           </form>
           <div className=" flex gap-2 text-sm mt-5 md: ">
             <span className=''> Dont have an account?</span>

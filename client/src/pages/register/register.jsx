@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Logo from '/img/Logo.png';
 import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
+import Oauth from '../../components/oauth/oauth';
 
 
 function Register() {
@@ -101,7 +102,7 @@ function Register() {
                 onChange={handleChange}
               />
             </div>
-            <Button className=''  gradientDuoTone="redToYellow" type='submit' disabled={loading}>
+            <Button className='hover:text-white'  gradientDuoTone="redToYellow" type='submit' disabled={loading}>
               {
                 loading ? (
                   <>
@@ -111,6 +112,7 @@ function Register() {
                 ) : 'Register'
               }
             </Button>
+            <Oauth/>
           </form>
           <div className=" flex gap-2 text-sm mt-5 md: ">
             <span className=''> Have an account?</span>
