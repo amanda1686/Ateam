@@ -1,9 +1,7 @@
-// Import the functions you need from the SDKs you need
+// Importa las funciones que necesitas del SDK de Firebase
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Tu configuración de Firebase con variables de entorno
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "ateam-77359.firebaseapp.com",
@@ -13,6 +11,8 @@ const firebaseConfig = {
   appId: "1:1053390640956:web:6b3dcd552e78401fae7039"
 };
 
-// Initialize Firebase
+// Inicializa Firebase con la configuración
 export const app = initializeApp(firebaseConfig);
+
+
 
