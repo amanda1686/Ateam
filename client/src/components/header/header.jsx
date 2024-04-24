@@ -6,12 +6,30 @@ import { FaSun } from "react-icons/fa";
 import  './header.css'
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../redux/theme/themeSlice";
+import { logoutSuccess } from "../../redux/user/userSlice";
 
 export default function Header() {
   const {theme} = useSelector ((state) => state.theme);
   const dispatch = useDispatch();
   const path = useLocation().pathname;
   const {currentUser} = useSelector(state => state.user);
+
+  const handleLogout = async () =>{
+    try {
+      const res = await fetch('/api/user/logout', {
+        method: 'POST',
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        console.log(data.message);
+      } else {
+        dispatch(logoutSuccess());
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
   return (
     <Navbar className=" border-b-2">
       <Link to="/" className=" self-center whitespace-nowrap">
@@ -73,7 +91,7 @@ export default function Header() {
               <Dropdown.Item>Profile</Dropdown.Item>
             </Link>
             <Dropdown.Divider/>
-            <Dropdown.Item>Logout</Dropdown.Item>
+            <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
             
           </Dropdown>
         ):
