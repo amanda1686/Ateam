@@ -10,6 +10,8 @@ import Products from './pages/products/products.jsx';
 import Footer from "./components/footer/footer.jsx";
 import Contact from "./pages/contact/contact.jsx";
 import PrivateRoute from "./components/privateRoute/privateRoute.jsx";
+import OnlyAdminPrivateRoute from "./components/onlyAdminPrivateRoute/onlyAdminPrivateRoute.jsx";
+import CreatePost from "./pages/createPost/createPost.jsx";
 
 
 export default function App() {
@@ -22,6 +24,9 @@ export default function App() {
           <Route path="/register" element={<Register/>}/>
           <Route element={<PrivateRoute/>}>
           <Route path="/dashboard" element={<Dashboard/>}/>
+          </Route>
+          <Route element={<OnlyAdminPrivateRoute/>}>
+          <Route path="/create-post" element={<CreatePost/>}/>
           </Route>
           <Route path="/vision" element={<Vision/>}/>
           <Route path="/products" element={<Products/>}/>
