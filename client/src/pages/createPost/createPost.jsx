@@ -91,10 +91,10 @@ export default function CreatePost() {
         >
           
           <option value='uncategorized'>Select a category</option>
-          <option value='drama'>Recetas de café</option>
-          <option value='cienciaficcion'>Reseñas de cafés</option>
-          <option value='juvenil'>Salud y bienestar</option>
-          <option value='manga'>Arte y cultura</option>
+          <option value='recetas'>Recetas de café</option>
+          <option value='reseñas'>Reseñas de cafés</option>
+          <option value='saludybienestar'>Salud y bienestar</option>
+          <option value='arteycultura'>Arte y cultura</option>
         </Select>
         </div>
         <div className=" flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">

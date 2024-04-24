@@ -12,6 +12,7 @@ import Contact from "./pages/contact/contact.jsx";
 import PrivateRoute from "./components/privateRoute/privateRoute.jsx";
 import OnlyAdminPrivateRoute from "./components/onlyAdminPrivateRoute/onlyAdminPrivateRoute.jsx";
 import CreatePost from "./pages/createPost/createPost.jsx";
+import PostPage from "./pages/posts/postPage.jsx";
 
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
           </Route>
           <Route path="/vision" element={<Vision/>}/>
           <Route path="/products" element={<Products/>}/>
+          <Route path="/post/:postSlug" element={<PostPage/>}/>
           <Route path="/contact" element={<Contact/>}/>
       </Routes>
       <Footer/>
