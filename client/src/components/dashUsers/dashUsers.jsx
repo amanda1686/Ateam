@@ -68,7 +68,7 @@ export default function DashUsers() {
 
 
   return (
-    <div className='w-full table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500'>
+    <div className='w-full table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500 '>
         {currentUser.isAdmin && users?.length > 0 ? (
             <>
                 <Table hoverable className='shadow-md'>
@@ -82,7 +82,7 @@ export default function DashUsers() {
                     </Table.Head>
                     {users.map((user) =>
                         <Table.Body className='divide-y' key={user._id}>
-                            <TableRow className='bg-white dark:border-gray-700 dark:bg-gray-800'>
+                            <TableRow className='bg-white dark:border-gray-700 dark:bg-gray-800 '>
                                 <TableCell>
                                     {new Date(user.createdAt).toLocaleDateString()}
                                 </TableCell>

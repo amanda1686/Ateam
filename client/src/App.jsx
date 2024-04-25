@@ -13,6 +13,7 @@ import PrivateRoute from "./components/privateRoute/privateRoute.jsx";
 import OnlyAdminPrivateRoute from "./components/onlyAdminPrivateRoute/onlyAdminPrivateRoute.jsx";
 import CreatePost from "./pages/createPost/createPost.jsx";
 import PostPage from "./pages/posts/postPage.jsx";
+import UpdatePost from "./pages/updatePosts/updatePosts.jsx";
 
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
           </Route>
           <Route element={<OnlyAdminPrivateRoute/>}>
           <Route path="/create-post" element={<CreatePost/>}/>
+          <Route path="/updatepost/:postId" element={<UpdatePost/>}/>
           </Route>
           <Route path="/vision" element={<Vision/>}/>
           <Route path="/products" element={<Products/>}/>

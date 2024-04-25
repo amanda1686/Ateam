@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/user.Routes.js';
 import authRoutes from './routes/auth.Routes.js';
 import postRoutes from './routes/post.routes.js'
+import commentRoute from './routes/comment.Routes.js'
 import cookieParser from 'cookie-parser';
 
 
@@ -29,6 +30,7 @@ app.listen(3000, () =>{
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/post', postRoutes);
+app.use('/api/comment', commentRoute);
 
 app.use((err, req, res, next) =>{
     const statusCode = err.statusCode || 500;
