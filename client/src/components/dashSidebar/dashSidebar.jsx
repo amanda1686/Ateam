@@ -2,6 +2,7 @@ import { Sidebar } from 'flowbite-react'
 import { useEffect, useState } from 'react';
 import { GiCoffeeCup } from "react-icons/gi";
 import { MdCoffeeMaker } from "react-icons/md";
+import { HiOutlineUserGroup } from "react-icons/hi";
 import { IoMdLogOut } from "react-icons/io";
 import { Link, useLocation } from 'react-router-dom';
 import { logoutSuccess } from '../../redux/user/userSlice';
@@ -62,11 +63,20 @@ export default function DashSidebar() {
                   className='hover:bg-yellow-300 dark:hover:bg-pink-300'>
                     Posts
                 </Sidebar.Item>
-                </Link>
-
-                )
-
-                }
+                </Link> 
+                )}
+                {currentUser.isAdmin && (
+                <Link to='/dashboard?tab=users'>                
+                <Sidebar.Item 
+                  icon={HiOutlineUserGroup}
+                  active={tab === 'users'} 
+                  labelColor='dark'
+                  as='div' 
+                  className='hover:bg-yellow-300 dark:hover:bg-pink-300'>
+                    Users
+                </Sidebar.Item>
+                </Link> 
+                )}
                 <Sidebar.Item 
                   icon={IoMdLogOut}  
                   labelColor='dark' 
