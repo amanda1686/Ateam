@@ -14,6 +14,7 @@ import OnlyAdminPrivateRoute from "./components/onlyAdminPrivateRoute/onlyAdminP
 import CreatePost from "./pages/createPost/createPost.jsx";
 import PostPage from "./pages/posts/postPage.jsx";
 import UpdatePost from "./pages/updatePosts/updatePosts.jsx";
+import Search from "./pages/search/Search.jsx";
 
 
 export default function App() {
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/products" element={<Products/>}/>
           <Route path="/post/:postSlug" element={<PostPage/>}/>
           <Route path="/contact" element={<Contact/>}/>
+          <Route path="/search" element={<Search/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

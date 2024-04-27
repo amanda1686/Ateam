@@ -2,7 +2,7 @@ import { Button, Spinner } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import CommentSection from "../../components/commentSection/commentSection";
-// import PostCard from "../components/PostCard";
+import PostCard from "../../components/postCard/postCard.jsx";
 
 export default function PostPage() {
     const { postSlug } = useParams();
@@ -84,9 +84,9 @@ if (loading) {
             <div className="flex flex-col justify-center items-center mb-5">
             <h1 className='text-xl mt-5'>Recent Articles</h1>
             <div className="flex flex-col md:flex-row md:w-[1000px] md:gap-4 mt-4">
-  {/* {recentPosts && recentPosts.map((post) => (
+  {recentPosts && recentPosts.map((post) => (
     <PostCard key={post._id} post={post} />
-  ))} */}
+  ))}
 </div>
 
         </div>
