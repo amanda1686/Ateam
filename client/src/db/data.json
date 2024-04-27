@@ -1,0 +1,58 @@
+{
+    "articulos_cafe": [
+      {
+        "id": 1,
+        "nombre": "Café Espresso",
+        "descripcion": "Un café concentrado y fuerte, hecho al forzar agua caliente a través de granos de café finamente molidos.",
+        "precio": 2.5,
+        "imagen": "coffee-bag.png",
+        "disponible": true,
+        "categoria": "Espresso"
+      },
+      {
+        "id": 2,
+        "nombre": "Café Latte",
+        "descripcion": "Una bebida de café hecha con espresso y una cantidad generosa de leche vaporizada.",
+        "precio": 3.5,
+        "imagen": "coffee-bag.png",
+        "disponible": true,
+        "categoria": "Leche"
+      },
+      {
+        "id": 3,
+        "nombre": "Cappuccino",
+        "descripcion": "Una bebida de café hecha con partes iguales de espresso, leche vaporizada y espuma de leche.",
+        "precio": 3.0,
+        "imagen": "coffee-bag.png",
+        "disponible": true,
+        "categoria": "Leche"
+      },
+      {
+        "id": 4,
+        "nombre": "Café Americano",
+        "descripcion": "Un café diluido hecho agregando agua caliente al espresso.",
+        "precio": 2.0,
+        "imagen": "coffee-bag.png",
+        "disponible": true,
+        "categoria": "Americano"
+      },
+      {
+        "id": 4,
+        "nombre": "Café Americano",
+        "descripcion": "Un café diluido hecho agregando agua caliente al espresso.",
+        "precio": 2.0,
+        "imagen": "coffee-bag.png",
+        "disponible": true,
+        "categoria": "Americano"
+      },      {
+        "id": 4,
+        "nombre": "Café Americano",
+        "descripcion": "Un café diluido hecho agregando agua caliente al espresso.",
+        "precio": 2.0,
+        "imagen": "coffee-bag.png",
+        "disponible": true,
+        "categoria": "Americano"
+      }
+    ]
+  }
+  
